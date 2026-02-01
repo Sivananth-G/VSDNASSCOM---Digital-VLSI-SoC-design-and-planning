@@ -1,7 +1,7 @@
-#THEORY
+# THEORY
 
-#Maze Routing, Lee’s Algorithm, and Physical Routing Concepts
-#1. Overview of Routing and Lee’s Algorithm
+# Maze Routing, Lee’s Algorithm, and Physical Routing Concepts
+# 1. Overview of Routing and Lee’s Algorithm
 
 Routing is the process of physically connecting different components of an integrated circuit—such as flip-flops, clocks, and standard cells—using metal interconnects. The goal is to create reliable signal paths while minimizing delay, congestion, and area usage.
 
@@ -23,11 +23,11 @@ Conform to Manhattan routing geometry (horizontal and vertical paths only)
 
 From a computational perspective, routing involves path-finding between nodes, while in VLSI design it translates to placing metal wires on silicon layers. Lee’s Algorithm is especially suitable for grid-based routing problems commonly found in physical design.
 
-#2. Working Principle of Lee’s Maze Routing Algorithm
+# 2. Working Principle of Lee’s Maze Routing Algorithm
 
 Lee’s Algorithm operates on a grid that represents the available routing area and systematically explores all possible paths between a source and a target.
 
-#Step 1: Grid Initialization
+# Step 1: Grid Initialization
 
 The routing grid is classified into:
 
@@ -39,11 +39,11 @@ Source: Starting point of the connection
 
 Target: Destination point
 
-#Step 2: Wave Propagation
+# Step 2: Wave Propagation
 
 Starting from the source, the algorithm expands outward in four directions—up, down, left, and right—assigning incremental cost values to each visited cell. Expansion continues until the target is reached or no valid paths remain.
 
-#Step 3: Path Backtracking
+# Step 3: Path Backtracking
 
 Once the destination is reached, the algorithm traces back from the target to the source by following the decreasing cost values, resulting in the shortest legal routing path.
 
@@ -55,7 +55,7 @@ Strict obstacle avoidance
 
 No diagonal routing or overlap with blocked regions
 
-#3. Design Rule Check (DRC)
+# 3. Design Rule Check (DRC)
 
 All routing must comply with fabrication rules defined by the foundry, known as Design Rules.
 
@@ -71,7 +71,7 @@ Legal via dimensions and spacing
 
 The purpose of DRC is to ensure manufacturability, prevent electrical failures, and maintain signal integrity. Any violations detected after routing must be corrected before fabrication.
 
-#4. Signal Shorts and Metal Layer Switching
+# 4. Signal Shorts and Metal Layer Switching
 
 Signal shorts can occur due to routing congestion and may cause functional or timing failures.
 
@@ -83,7 +83,7 @@ Vias are inserted to transition between layers
 
 All vias and layer transitions must satisfy metal-specific design rules, such as preferred routing directions (e.g., M1 vertical, M2 horizontal). While higher metal layers often require wider wires, they help alleviate congestion.
 
-#5. Routing Stages in VLSI Design
+# 5. Routing Stages in VLSI Design
 
 Routing is generally divided into two phases:
 
@@ -105,7 +105,7 @@ Ensures complete DRC compliance
 
 Global routing defines the routing strategy, while detailed routing ensures correctness and manufacturability.
 
-#6. TritonRoute: Detailed Routing Engine
+# 6. TritonRoute: Detailed Routing Engine
 
 TritonRoute is an open-source detailed router used in the OpenROAD flow and is invoked through the run_routing command.
 
@@ -131,7 +131,7 @@ Routes alternating panels sequentially
 
 Improves routing efficiency and reduces congestion
 
-#7. Optimization Using MILP
+# 7. Optimization Using MILP
 
 TritonRoute applies Mixed Integer Linear Programming (MILP) to optimize routing between Access Point Clusters (APCs).
 
@@ -145,7 +145,7 @@ Selection of lowest-cost routing paths
 
 This approach minimizes wire length and congestion while ensuring optimal connectivity.
 
-#8. Routing Execution and Final Output
+# 8. Routing Execution and Final Output
 
 Executing run_routing performs both global and detailed routing.
 
