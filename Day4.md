@@ -3,15 +3,15 @@
 
 ## 1. Clock Gating Technique
 
-Clock gating is a power optimization method where the clock signal is selectively enabled based on control signals. This prevents unnecessary switching activity and reduces dynamic power consumption.
+Clock gating is a power-saving technique in which the clock signal is conditionally allowed to propagate based on a control (enable) signal. By disabling the clock when a circuit block is inactive, unnecessary switching is avoided, thereby reducing dynamic power consumption.
 
-- **AND Gate Approach:**  
-  Clock propagates only when the enable signal is `1`.
+AND-gate based gating:
+The clock is passed only when the enable signal is high (1).
 
-- **OR Gate Approach:**  
-  Clock propagates only when the enable signal is `0`.
+OR-gate based gating:
+The clock is passed only when the enable signal is low (0).
 
-When the enable signal disables the clock, there is no short-circuit or dynamic power consumption. This principle is widely used in **clock tree design** to reduce switching activity.
+When the clock is gated off, switching activity is eliminated, resulting in no dynamic or short-circuit power dissipation. This technique is extensively used in clock tree design to minimize overall power consumption.
 
 ---
 
